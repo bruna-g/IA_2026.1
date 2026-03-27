@@ -137,14 +137,16 @@ def reconstruir_cam(child):
 
     
 def main():
-    # result_bfs, nos_visitados_bfs = BFS(Problem("132045768"))
-    # if result_bfs == False:
-    #     print("Não há solução em BFS.")
-    # else:
-    #     reconstruir_cam(result_bfs)
-    #     print(f"Número de nós visitados: {nos_visitados_bfs}")
+    print("######### Busca em Largura #########")
+    result_bfs, nos_visitados_bfs = BFS(Problem("123456078"))
+    if result_bfs == False:
+        print("Não há solução em BFS.")
+    else:
+        reconstruir_cam(result_bfs)
+        print(f"Número de nós visitados: {nos_visitados_bfs}\n")
 
-    result_dfs, nos_visitados_dfs = DFS(Problem("132045768"))
+    print("######### Busca em Profundidade #########")
+    result_dfs, nos_visitados_dfs = DFS(Problem("123456078"))
     if result_dfs == False:
         print("Não há solução em DFS.")
     else:
