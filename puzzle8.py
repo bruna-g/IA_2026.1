@@ -1,8 +1,7 @@
 from collections import deque
+import sys
 
 def BFS(problema):
-    if paridade(problema.est_inicial) > 0:
-        return False
     node = Node(problema.est_inicial, 'pai', None, 0)
     if verifica_est_objetivo(problema.est_inicial):
         return node
@@ -24,8 +23,6 @@ def BFS(problema):
     return False, nos_expandidos
 
 def DFS(problema):
-    if paridade(problema.est_inicial) > 0:
-        return False
     node = Node(problema.est_inicial, 'pai', None, 0)
     if verifica_est_objetivo(problema.est_inicial):
         return node
@@ -129,29 +126,48 @@ def reconstruir_cam(child):
     while caminho:
         no_imprimir = caminho.pop()
         if no_imprimir.acao:
-            print(f"Passo {no_imprimir.profund}: Ação '{no_imprimir.acao}' -> Estado: {no_imprimir.est_atual} -> Profundidade: {no_imprimir.profund}")
+            print(f"Passo {no_imprimir.profund}: Ação '{no_imprimir.acao}' -> Estado: {no_imprimir.est_atual} -> Profundidade: {no_imprimir.profund} -> Pai: {no_imprimir.node_pai.est_atual}")
         else:
-            print(f"Passo 0: Estado Inicial -> Estado: {no_imprimir.est_atual}")
+            print(f"Passo 0: Estado Inicial -> {no_imprimir.est_atual}")
     
     print(f"\nSolução encontrada em {child.profund} movimentos.")
 
     
 def main():
-    print("######### Busca em Largura #########")
-    result_bfs, nos_visitados_bfs = BFS(Problem("123456078"))
-    if result_bfs == False:
-        print("Não há solução em BFS.")
-    else:
-        reconstruir_cam(result_bfs)
-        print(f"Número de nós visitados: {nos_visitados_bfs}\n")
+    if len(sys.argv) != 3:
+        print("Uso: python puzzle8.py <algoritmo> <estado_inicial>")
+        print("Exemplo: python puzzle8.py BFS 123406758")
+        return
 
-    print("######### Busca em Profundidade #########")
-    result_dfs, nos_visitados_dfs = DFS(Problem("123456078"))
-    if result_dfs == False:
-        print("Não há solução em DFS.")
+    algoritmo = sys.argv[1].upper()
+    estado_inicial = sys.argv[2]
+
+    if len(estado_inicial) != 9 or not estado_inicial.isdigit():
+        print("Erro: O estado inicial deve ser uma string de 9 dígitos.")
+        return
+    
+    if paridade(estado_inicial) > 0:
+        print("A paridade inicial é ímpar, não há solução.")
+        return
+
+    if algoritmo == "BFS":
+        print("######### Busca em Largura (BFS) #########")
+        result, nos_visitados = BFS(Problem(estado_inicial))
+        if not result:
+            print("Não há solução para este estado inicial.")
+        else:
+            reconstruir_cam(result)
+            print(f"Número de nós expandidos: {nos_visitados}\n")
+    elif algoritmo == "DFS":
+        print("######### Busca em Profundidade (DFS) #########")
+        result, nos_visitados = DFS(Problem(estado_inicial))
+        if not result:
+            print("Não há solução para este estado inicial.")
+        else:
+            reconstruir_cam(result)
+            print(f"Número de nós expandidos: {nos_visitados}")
     else:
-        reconstruir_cam(result_dfs)
-        print(f"Número de nós visitados: {nos_visitados_dfs}")
+        print(f"Erro: Algoritmo '{sys.argv[1]}' não reconhecido. Use BFS ou DFS.")
     
 
 main()

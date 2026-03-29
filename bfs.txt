@@ -1,0 +1,36 @@
+######### Busca em Largura (BFS) #########
+Passo 0: Estado Inicial -> 876543210
+Passo 1: Ação 'esq' -> Estado: 876543201 -> Profundidade: 1 -> Pai: 876543210
+Passo 2: Ação 'esq' -> Estado: 876543021 -> Profundidade: 2 -> Pai: 876543201
+Passo 3: Ação 'cima' -> Estado: 876043521 -> Profundidade: 3 -> Pai: 876543021
+Passo 4: Ação 'cima' -> Estado: 076843521 -> Profundidade: 4 -> Pai: 876043521
+Passo 5: Ação 'dir' -> Estado: 706843521 -> Profundidade: 5 -> Pai: 076843521
+Passo 6: Ação 'baixo' -> Estado: 746803521 -> Profundidade: 6 -> Pai: 706843521
+Passo 7: Ação 'esq' -> Estado: 746083521 -> Profundidade: 7 -> Pai: 746803521
+Passo 8: Ação 'baixo' -> Estado: 746583021 -> Profundidade: 8 -> Pai: 746083521
+Passo 9: Ação 'dir' -> Estado: 746583201 -> Profundidade: 9 -> Pai: 746583021
+Passo 10: Ação 'cima' -> Estado: 746503281 -> Profundidade: 10 -> Pai: 746583201
+Passo 11: Ação 'dir' -> Estado: 746530281 -> Profundidade: 11 -> Pai: 746503281
+Passo 12: Ação 'baixo' -> Estado: 746531280 -> Profundidade: 12 -> Pai: 746530281
+Passo 13: Ação 'esq' -> Estado: 746531208 -> Profundidade: 13 -> Pai: 746531280
+Passo 14: Ação 'esq' -> Estado: 746531028 -> Profundidade: 14 -> Pai: 746531208
+Passo 15: Ação 'cima' -> Estado: 746031528 -> Profundidade: 15 -> Pai: 746531028
+Passo 16: Ação 'cima' -> Estado: 046731528 -> Profundidade: 16 -> Pai: 746031528
+Passo 17: Ação 'dir' -> Estado: 406731528 -> Profundidade: 17 -> Pai: 046731528
+Passo 18: Ação 'baixo' -> Estado: 436701528 -> Profundidade: 18 -> Pai: 406731528
+Passo 19: Ação 'dir' -> Estado: 436710528 -> Profundidade: 19 -> Pai: 436701528
+Passo 20: Ação 'cima' -> Estado: 430716528 -> Profundidade: 20 -> Pai: 436710528
+Passo 21: Ação 'esq' -> Estado: 403716528 -> Profundidade: 21 -> Pai: 430716528
+Passo 22: Ação 'baixo' -> Estado: 413706528 -> Profundidade: 22 -> Pai: 403716528
+Passo 23: Ação 'baixo' -> Estado: 413726508 -> Profundidade: 23 -> Pai: 413706528
+Passo 24: Ação 'esq' -> Estado: 413726058 -> Profundidade: 24 -> Pai: 413726508
+Passo 25: Ação 'cima' -> Estado: 413026758 -> Profundidade: 25 -> Pai: 413726058
+Passo 26: Ação 'cima' -> Estado: 013426758 -> Profundidade: 26 -> Pai: 413026758
+Passo 27: Ação 'dir' -> Estado: 103426758 -> Profundidade: 27 -> Pai: 013426758
+Passo 28: Ação 'baixo' -> Estado: 123406758 -> Profundidade: 28 -> Pai: 103426758
+Passo 29: Ação 'baixo' -> Estado: 123456708 -> Profundidade: 29 -> Pai: 123406758
+Passo 30: Ação 'dir' -> Estado: 123456780 -> Profundidade: 30 -> Pai: 123456708
+
+Solução encontrada em 30 movimentos.
+Número de nós expandidos: 180911
+
